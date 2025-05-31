@@ -1,0 +1,16 @@
+@use '../../styles/variables';
+
+.card {
+  max-width: 320px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  color: variables.$secondary-color;
+}
+
+.description {
+  font-size: 20px;
+  color: variables.$text-color;
+  margin-top: 16px;
+}
