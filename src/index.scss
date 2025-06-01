@@ -9,13 +9,21 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+}
+html, body {
+   height: 100%;
+}
+
 body {
   font-family: variables.$font-main;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fff;
+  background-color: variables.$background-color;
   color: variables.$text-color;
+
 }
 
 ul,
@@ -65,48 +73,15 @@ main {
   margin: 0 auto;
   border-left: 1px solid variables.$text-color-line;
   border-right: 1px solid variables.$text-color-line;
-  height: 100vh;
   position: relative;
-}
-
-.lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    background-color: variables.$text-color-line;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: rgba(variables.$text-color-line, 0.1);
-  }
-}
-
-.content {
-  padding: 0 80px;
-  margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .heading {
   font-size: 56px;
   color: variables.$text-color;
-  padding-top: 170px;
+  display: inline-block;
+  position: absolute;
+  top: 170px;
+  left: 60px;
 }

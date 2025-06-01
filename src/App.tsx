@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { CircleMenu } from './components/circle-menu/CircleMenu';
-import { EventSlider } from './components/event-slider/EventSlider';
 import './index.scss';
 import { Category } from './types/types';
+import { TimelineCircleBlock } from './components/timeline-circle-block/TimelineCircleBlock';
 
-const data: any[] = [
+const data: Category[] = [
   {
     label: 'Наука',
     events: [
@@ -89,20 +87,74 @@ const data: any[] = [
       },
     ],
   },
+
+  {
+    label: 'История',
+    events: [
+      {
+        year: 2015,
+        title: '2015',
+        description:
+          'История 13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды',
+      },
+      {
+        year: 2016,
+        title: '2016',
+        description:
+          'История Телескоп «Хаббл» обнаружил самую удалённую из всех обнаруженных галактик, получившую обозначение GN-z11',
+      },
+      {
+        year: 2017,
+        title: '2017',
+        description:
+          'История Компания Tesla официально представила первый в мире электрический грузовик Tesla Semi',
+      },
+      {
+        year: 2022,
+        title: '2022',
+        description:
+          'История Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+    ],
+  },
+  {
+    label: 'Книги',
+    events: [
+      {
+        year: 2015,
+        title: '2015',
+        description:
+          'Книги 13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды',
+      },
+      {
+        year: 2016,
+        title: '2016',
+        description:
+          'Книги Телескоп «Хаббл» обнаружил самую удалённую из всех обнаруженных галактик, получившую обозначение GN-z11',
+      },
+      {
+        year: 2017,
+        title: '2017',
+        description:
+          'Книги Компания Tesla официально представила первый в мире электрический грузовик Tesla Semi',
+      },
+      {
+        year: 2022,
+        title: '2022',
+        description:
+          'Книги Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+    ],
+  },
 ];
 
 const App = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(data[0]);
   return (
     <div className="container">
-      <div className="lines" />
-      <div className="content">
-        <h1 className="heading">
-          Исторические <div>даты</div>
-        </h1>
-        <CircleMenu categories={data} onSelect={setSelectedCategory} />
-        {selectedCategory && <EventSlider events={selectedCategory.events} />}
-      </div>
+      <h1 className="heading">
+        Исторические <br /> даты
+      </h1>
+      <TimelineCircleBlock categories={data} />
     </div>
   );
 };

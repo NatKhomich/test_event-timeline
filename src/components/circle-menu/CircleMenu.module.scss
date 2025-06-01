@@ -1,0 +1,59 @@
+@use '../../styles/variables';
+
+.circleMenu {
+  svg {
+    transition: transform 0.5s ease;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .pointGroup {
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    .pointCircle {
+      fill: variables.$text-color;
+      r: 3;
+      transition: all 0.3s ease;
+    }
+
+    .pointLabel {
+      fill: variables.$text-color;
+      font-size: 20px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+      display: none;
+    }
+
+    &.hovered {
+      .pointCircle {
+        r: 28;
+        fill: rgba(#303e58, 0.5);
+      }
+
+      .pointLabel {
+        display: block;
+      }
+    }
+
+    &.selected {
+      .pointCircle {
+        fill: variables.$background-color;
+        stroke: variables.$text-color;
+        stroke-width: 1;
+        r: 28;
+      }
+
+      .pointLabel {
+        display: block;
+      }
+    }
+  }
+}
+
+.pointLabelText {
+  font-size: 20px;
+  fill: variables.$text-color;
+  font-weight: 700;
+}
