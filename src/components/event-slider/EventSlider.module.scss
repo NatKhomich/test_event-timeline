@@ -3,7 +3,7 @@
 .sliderContainer {
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
+  margin-top: 10px;
   pointer-events: auto;
   position: relative;
   transition: padding-left 0.3s ease;
@@ -18,30 +18,18 @@
   width: 100%;
 }
 
-.navButton {
-  background: variables.$white-color;
-  border-radius: 50%;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  pointer-events: auto;
-
-  width: 40px;
-  height: 40px;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
 .leftButton {
   position: absolute;
   left: 34px;
+  width: 40px;
+  height: 40px;
 }
 
 .rightButton {
   position: absolute;
   right: 34px;
+  width: 40px;
+  height: 40px;
 }
 
 .withLeftOffset {

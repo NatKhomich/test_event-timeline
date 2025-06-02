@@ -12,18 +12,18 @@
 #root {
   height: 100%;
 }
-html, body {
-   height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
   font-family: variables.$font-main;
-  line-height: 1.5;
+  line-height: variables.$line-height-20;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: variables.$background-color;
   color: variables.$text-color;
-
 }
 
 ul,
@@ -75,13 +75,35 @@ main {
   border-right: 1px solid variables.$text-color-line;
   position: relative;
   min-height: 100vh;
-}
 
-.heading {
-  font-size: 56px;
-  color: variables.$text-color;
-  display: inline-block;
-  position: absolute;
-  top: 170px;
-  left: 60px;
+  .heading {
+    font-size: 20px;
+    color: variables.$text-color;
+    display: inline-block;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -82px;
+      top: 0;
+      height: 100%;
+      width: 5px;
+      background: linear-gradient(to bottom, variables.$secondary-color, variables.$primary-color);
+    }
+
+    @include variables.respond-to(md) {
+      font-size: 35px;
+      top: 60px;
+      left: 80px;
+    }
+
+    @include variables.respond-to(lg) {
+      font-size: 56px;
+      top: 130px;
+      left: 80px;
+    }
+  }
 }

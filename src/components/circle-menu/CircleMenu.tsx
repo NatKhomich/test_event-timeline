@@ -1,14 +1,15 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Category } from '../../types/types';
 import styles from './CircleMenu.module.scss';
 
 interface Props {
   categories: Category[];
+  selectedCategory: Category;
   onSelect: (cat: Category) => void;
 }
 
-export const CircleMenu = ({ categories, onSelect }: Props) => {
+export const CircleMenu = ({ categories, selectedCategory, onSelect }: Props) => {
   const size = 620;
   const center = size / 2;
   const radius = center - 45;
@@ -20,6 +21,14 @@ export const CircleMenu = ({ categories, onSelect }: Props) => {
   const rotationRef = useRef<SVGGElement | null>(null);
   const currentRotation = useRef<number>(0);
   const [rotationAngle, setRotationAngle] = useState(0);
+
+  useEffect(() => {
+    const index = categories.findIndex((cat) => cat === selectedCategory);
+    if (index !== -1 && index !== selectedIndex) {
+      setSelectedIndex(index);
+      rotateTo(index);
+    }
+  }, [selectedCategory]);
 
   const rotateTo = (targetIndex: number) => {
     const anglePerItem = 360 / categories.length;

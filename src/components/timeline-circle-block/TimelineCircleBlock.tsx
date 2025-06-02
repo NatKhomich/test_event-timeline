@@ -3,6 +3,8 @@ import { Category, EventItem } from '../../types/types';
 import { CircleMenu } from '../circle-menu/CircleMenu';
 import { EventSlider } from '../event-slider/EventSlider';
 import style from './TimelineCircleBlock.module.scss';
+import { YearRange } from '../year-range/YearRange';
+import { RotationControls } from '../rotation-controlls/RotationControls';
 
 type Props = {
   categories: Category[];
@@ -23,12 +25,18 @@ export const TimelineCircleBlock = ({ categories }: Props) => {
 
   return (
     <div className={style.timelineBlock}>
-      <CircleMenu categories={categories} onSelect={setSelectedCategory} />
+      <CircleMenu
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onSelect={setSelectedCategory}
+      />
+      <YearRange years={yearRange} />
 
-      <div>
-        <span>{yearRange.min}</span>
-        <span>{yearRange.max}</span>
-      </div>
+      <RotationControls
+        selectedCategory={selectedCategory}
+        categories={categories}
+        onSelected={setSelectedCategory}
+      />
 
       <EventSlider events={selectedCategory.events} />
     </div>

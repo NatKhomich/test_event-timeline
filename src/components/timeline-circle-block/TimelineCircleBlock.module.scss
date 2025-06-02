@@ -3,8 +3,8 @@
 .timelineBlock {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-top: 80px;
+  min-height: 100vh;
 
   position: relative;
   top: 0;

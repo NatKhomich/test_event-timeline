@@ -1,0 +1,36 @@
+@use '../../styles/variables';
+
+.yearRangeBlock {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  top: 164px;
+
+  font-size: 56px;
+  font-weight: 700;
+  line-height: variables.$line-height-60;
+  z-index: 10;
+
+  display: flex;
+  gap: 60px;
+
+  @include variables.respond-to(md) {
+    font-size: 100px;
+    top: 310px;
+  }
+
+  @include variables.respond-to(lg) {
+    font-size: 200px;
+    top: 230px;
+  }
+
+  .minRange {
+    color: variables.$secondary-color;
+  }
+
+  .maxRange {
+    color: variables.$primary-color;
+  }
+}

@@ -1,0 +1,14 @@
+@use '../../../styles/variables';
+
+.baseButton {
+  background: variables.$white-color;
+  border-radius: 50%;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
