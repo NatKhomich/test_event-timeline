@@ -1,6 +1,7 @@
-import { Category } from '../../types/types';
-import { ArrowIcon } from '../ui/arrow-icon';
-import { Button } from '../ui/button';
+import { useEffect, useState } from 'react';
+import { Category } from '../../../types/types';
+import { ArrowIcon } from '../../ui/arrow-icon';
+import { Button } from '../../ui/button';
 import styles from './RotationControls.module.scss';
 
 type Props = {
@@ -24,13 +25,17 @@ export const RotationControls = ({ selectedCategory, categories, onSelected }: P
   return (
     <div className={styles.rotationControls}>
       <span className={styles.categoryName}>
-        0{selectedIndex + 1}/0{selectedCategory.events.length}
+        0{selectedIndex + 1}/0{selectedCategory.events.length + 1}
       </span>
       <div className={styles.buttons}>
-        <Button className={styles.button} onClick={handlePrev}>
+        <Button className={styles.button} onClick={handlePrev} disabled={selectedIndex === 0}>
           <ArrowIcon direction="left" />
         </Button>
-        <Button className={styles.button} onClick={handleNext}>
+        <Button
+          className={styles.button}
+          onClick={handleNext}
+          disabled={selectedIndex === categories.length - 1}
+        >
           <ArrowIcon direction="right" />
         </Button>
       </div>

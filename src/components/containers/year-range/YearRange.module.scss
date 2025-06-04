@@ -1,4 +1,4 @@
-@use '../../styles/variables';
+@use '../../../styles/variables';
 
 .yearRangeBlock {
   position: absolute;
@@ -6,9 +6,9 @@
   justify-content: center;
   width: 100%;
 
-  top: 164px;
+  top: 230px;
 
-  font-size: 56px;
+  font-size: 200px;
   font-weight: 700;
   line-height: variables.$line-height-60;
   z-index: 10;
@@ -21,8 +21,13 @@
     top: 310px;
   }
 
-  @include variables.respond-to(lg) {
-    font-size: 200px;
+  @include variables.respond-to(sm) {
+    font-size: 56px;
+    top: 340px;
+  }
+
+  @include variables.respond-to(xs) {
+    font-size: 56px;
     top: 230px;
   }
 

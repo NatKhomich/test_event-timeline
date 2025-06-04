@@ -1,4 +1,4 @@
-@use '../../styles/variables';
+@use '../../../styles/variables';
 
 .sliderContainer {
   width: 100%;
@@ -8,6 +8,13 @@
   position: relative;
   transition: padding-left 0.3s ease;
   padding: 0 80px;
+
+  @include variables.respond-to(xs) {
+    position: absolute;
+    bottom: 150px;
+
+    padding: 0 10px;
+  }
 }
 
 .navigation {
@@ -23,6 +30,10 @@
   left: 34px;
   width: 40px;
   height: 40px;
+
+  @include variables.respond-to(xs) {
+    display: none;
+  }
 }
 
 .rightButton {
@@ -30,8 +41,16 @@
   right: 34px;
   width: 40px;
   height: 40px;
+
+  @include variables.respond-to(xs) {
+    display: none;
+  }
 }
 
 .withLeftOffset {
   padding-left: 100px;
+
+  @include variables.respond-to(xs) {
+    padding-left: 0;
+  }
 }

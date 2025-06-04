@@ -8,6 +8,11 @@
   transition: opacity 0.3s ease;
   pointer-events: auto;
 
+  :disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &:hover {
     opacity: 0.8;
   }

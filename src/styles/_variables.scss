@@ -1,13 +1,13 @@
 // Цвета
-$primary-color: #EF5DA8;
-$secondary-color: #5D5FEF;
-$text-color: #42567A;
+$primary-color: #ef5da8;
+$secondary-color: #5d5fef;
+$text-color: #42567a;
 $text-color-line: rgba($text-color, 0.1);
-$background-color: #F4F5F9;
-$white-color: #FFF;
+$background-color: #f4f5f9;
+$white-color: #fff;
 
 // Шрифты
-$font-main: "PTSans", Arial, sans-serif;
+$font-main: 'PTSans', Arial, sans-serif;
 
 // Размеры
 $container-width: 1440px;
@@ -24,14 +24,32 @@ $breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
 );
 
 @mixin respond-to($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
+  $next-breakpoint: null;
+
+  @if $breakpoint == 'xs' {
+    $next-breakpoint: map-get($breakpoints, 'sm');
+  } @else if $breakpoint == 'sm' {
+    $next-breakpoint: map-get($breakpoints, 'md');
+  } @else if $breakpoint == 'md' {
+    $next-breakpoint: map-get($breakpoints, 'lg');
+  } @else if $breakpoint == 'lg' {
+    $next-breakpoint: map-get($breakpoints, 'xl');
+  }
+
   @if $value {
-    @media (min-width: $value) {
-      @content;
+    @if $next-breakpoint {
+      @media (min-width: $value) and (max-width: ($next-breakpoint - 1px)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $value) {
+        @content;
+      }
     }
   }
 }

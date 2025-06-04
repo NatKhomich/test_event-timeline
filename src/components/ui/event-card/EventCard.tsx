@@ -1,5 +1,5 @@
-import { EventItem } from '../../types/types';
-import styles from "./EventCard.module.scss";
+import { EventItem } from '../../../types/types';
+import styles from './EventCard.module.scss';
 
 type Props = {
   event: EventItem;

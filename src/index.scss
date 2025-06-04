@@ -77,12 +77,12 @@ main {
   min-height: 100vh;
 
   .heading {
-    font-size: 20px;
+    font-size: 56px;
     color: variables.$text-color;
     display: inline-block;
     position: absolute;
-    top: 60px;
-    left: 20px;
+    top: 120px;
+    left: 80px;
 
     &::before {
       content: '';
@@ -100,10 +100,16 @@ main {
       left: 80px;
     }
 
-    @include variables.respond-to(lg) {
-      font-size: 56px;
-      top: 130px;
-      left: 80px;
+    @include variables.respond-to(sm) {
+      font-size: 35px;
+      top: 60px;
+      left: 20px;
+    }
+
+    @include variables.respond-to(xs) {
+      font-size: 35px;
+      top: 60px;
+      left: 20px;
     }
   }
 }
