@@ -26,6 +26,8 @@ export const TimelineCircleBlock = memo(({ categories }: Props) => {
 
       <YearRange years={yearRange} />
 
+      <div className={style.categoryTitle}>{selectedCategory.label}</div>
+
       <RotationControls
         selectedCategory={selectedCategory}
         categories={categories}

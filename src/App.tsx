@@ -5,9 +5,11 @@ import { Heading } from './components/ui/heading';
 
 const App = () => {
   return (
-    <div className="container">
-      <Heading />
-      <TimelineCircleBlock categories={timelineData} />
+    <div className="container-wrapper">
+      <div className="container">
+        <Heading />
+        <TimelineCircleBlock categories={timelineData} />
+      </div>
     </div>
   );
 };

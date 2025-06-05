@@ -69,6 +69,13 @@ main {
   display: block;
 }
 
+.container-wrapper {
+  @include variables.respond-to(xl) {
+    margin-left: clamp(20px, 320px, 20vw);
+    margin-right: clamp(20px, 160px, 10vw);
+  }
+}
+
 .container {
   max-width: variables.$container-width;
   margin: 0 auto;

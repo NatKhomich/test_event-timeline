@@ -10,9 +10,9 @@
   padding: 0 80px;
 
   @include variables.respond-to(xs) {
-    position: absolute;
-    bottom: 150px;
+    position: static;
     padding: 0 10px;
+    flex-grow: 1;
   }
 }
 
@@ -55,6 +55,12 @@
 }
 
 :global {
+  .swiper {
+    @include variables.respond-to(xs) {
+      min-height: 300px;
+      margin-top: 10%;
+    }
+  }
   .swiper-pagination {
     opacity: 0;
     text-align: center;
@@ -74,6 +80,7 @@
 
     @include variables.respond-to(xs) {
       opacity: 1;
+      position: absolute;
     }
   }
 }

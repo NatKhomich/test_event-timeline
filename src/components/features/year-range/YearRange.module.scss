@@ -27,8 +27,10 @@
   }
 
   @include variables.respond-to(xs) {
+    position: static;
     font-size: 56px;
-    top: 230px;
+    flex-grow: 1;
+    margin-top: 20%;
   }
 
   .minRange {
