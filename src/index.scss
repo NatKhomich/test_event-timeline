@@ -12,6 +12,7 @@
 #root {
   height: 100%;
 }
+
 html,
 body {
   height: 100%;
@@ -75,41 +76,4 @@ main {
   border-right: 1px solid variables.$text-color-line;
   position: relative;
   min-height: 100vh;
-
-  .heading {
-    font-size: 56px;
-    color: variables.$text-color;
-    display: inline-block;
-    position: absolute;
-    top: 120px;
-    left: 80px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: -82px;
-      top: 0;
-      height: 100%;
-      width: 5px;
-      background: linear-gradient(to bottom, variables.$secondary-color, variables.$primary-color);
-    }
-
-    @include variables.respond-to(md) {
-      font-size: 35px;
-      top: 60px;
-      left: 80px;
-    }
-
-    @include variables.respond-to(sm) {
-      font-size: 35px;
-      top: 60px;
-      left: 20px;
-    }
-
-    @include variables.respond-to(xs) {
-      font-size: 35px;
-      top: 60px;
-      left: 20px;
-    }
-  }
 }

@@ -1,4 +1,4 @@
-import { EventItem } from '../../../types/types';
+import { EventItem } from '../../../../types/types';
 import styles from './EventCard.module.scss';
 
 type Props = {

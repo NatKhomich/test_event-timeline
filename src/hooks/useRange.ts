@@ -1,12 +1,7 @@
 import { useEffect, useRef } from 'react';
-import styles from './YearRange.module.scss';
 import gsap from 'gsap';
 
-type Props = {
-  years: { min: number; max: number };
-};
-
-export const YearRange = ({ years }: Props) => {
+export const useRange = (years: { min: number; max: number }) => {
   const minRef = useRef<HTMLSpanElement>(null);
   const maxRef = useRef<HTMLSpanElement>(null);
 
@@ -55,14 +50,5 @@ export const YearRange = ({ years }: Props) => {
     prevMax.current = years.max;
   }, [years.min, years.max]);
 
-  return (
-    <div className={styles.yearRangeBlock}>
-      <span className={styles.minRange} ref={minRef}>
-        {years.min}
-      </span>
-      <span className={styles.maxRange} ref={maxRef}>
-        {years.max}
-      </span>
-    </div>
-  );
+  return { minRef, maxRef };
 };

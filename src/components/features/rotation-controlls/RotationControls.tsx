@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Category } from '../../../types/types';
 import { ArrowIcon } from '../../ui/arrow-icon';
 import { Button } from '../../ui/button';

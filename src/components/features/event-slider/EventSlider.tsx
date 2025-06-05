@@ -1,8 +1,7 @@
-import { EventCard } from '../../ui/event-card';
 import { EventItem } from '../../../types/types';
 import styles from './EventSlider.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -10,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Button } from '../../ui/button';
 import { ArrowIcon } from '../../ui/arrow-icon';
 import gsap from 'gsap';
+import { EventCard } from './event-card';
 
 interface Props {
   events: EventItem[];
@@ -58,11 +58,12 @@ export const EventSlider = ({ events }: Props) => {
       ref={slidesContainerRef}
     >
       <Swiper
-        modules={[Navigation]}
+        modules={[Pagination]}
         spaceBetween={30}
         slidesPerView={3}
         onSwiper={handleSwiper}
         onSlideChange={handleSlideChange}
+        pagination={{ clickable: true }}
         breakpoints={{
           1024: {
             slidesPerView: 3,
@@ -74,7 +75,7 @@ export const EventSlider = ({ events }: Props) => {
           },
           0: {
             slidesPerView: 1.3,
-            spaceBetween: 16,
+            spaceBetween: 12,
           },
         }}
       >

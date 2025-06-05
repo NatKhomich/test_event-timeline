@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Category } from '../../../types/types';
 import styles from './CircleMenu.module.scss';
+import { OutsideLabels } from './outside-labels';
 
 interface Props {
   categories: Category[];
@@ -13,8 +14,6 @@ export const CircleMenu = ({ categories, selectedCategory, onSelect }: Props) =>
   const size = 620;
   const center = size / 2;
   const radius = center - 45;
-
-  const baseAngleOffset = Math.PI / 3.5;
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
@@ -55,33 +54,6 @@ export const CircleMenu = ({ categories, selectedCategory, onSelect }: Props) =>
     onSelect(categories[index]);
     rotateTo(index);
   };
-
-  const degToRad = (deg: number) => (deg * Math.PI) / 180;
-
-  const outsideLabels = categories.map((category, i) => {
-    if (selectedIndex !== i) return null;
-
-    const baseAngle = (2 * Math.PI * i) / categories.length - baseAngleOffset;
-    const rotationRad = degToRad(currentRotation.current);
-    const totalAngle = baseAngle + rotationRad;
-
-    const labelRadius = radius + size * 0.1;
-    const x = center + labelRadius * Math.cos(totalAngle) + 45;
-    const y = center + labelRadius * Math.sin(totalAngle) + 10;
-
-    return (
-      <text
-        key={i}
-        x={x}
-        y={y}
-        className={styles.pointLabelText}
-        textAnchor="middle"
-        dominantBaseline="middle"
-      >
-        {category.label}
-      </text>
-    );
-  });
 
   return (
     <div className={styles.circleMenu}>
@@ -125,7 +97,14 @@ export const CircleMenu = ({ categories, selectedCategory, onSelect }: Props) =>
           })}
         </g>
 
-        {outsideLabels}
+        <OutsideLabels
+          categories={categories}
+          selectedIndex={selectedIndex}
+          currentRotation={currentRotation.current}
+          center={center}
+          radius={radius}
+          size={size}
+        />
       </svg>
     </div>
   );

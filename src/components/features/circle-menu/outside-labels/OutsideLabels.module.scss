@@ -1,0 +1,7 @@
+@use '../../../../styles/variables';
+
+.pointLabelText {
+  font-size: 20px;
+  fill: variables.$text-color;
+  font-weight: 700;
+}

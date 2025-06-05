@@ -17,13 +17,13 @@
   gap: 60px;
 
   @include variables.respond-to(md) {
-    font-size: 100px;
-    top: 310px;
+    font-size: 140px;
+    top: 280px;
   }
 
   @include variables.respond-to(sm) {
-    font-size: 56px;
-    top: 340px;
+    font-size: 100px;
+    top: 310px;
   }
 
   @include variables.respond-to(xs) {
